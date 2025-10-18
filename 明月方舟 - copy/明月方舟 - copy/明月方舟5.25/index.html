@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   rt5<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>塔防游戏</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    .game-container {
+      position: relative;
+    }
+    #gameCanvas {
+      border: 1px solid #000;
+      background-color: #fff;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: -120px;
+      top: 50%;
+      transform: translateY(-50%);
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .tower-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tower-btn {
+      padding: 10px;
+      width: 100px;
+    }
+    #groundTowerBtn {
+      background-color: #4CAF50;
+    }
+    #highTowerBtn {
+      background-color: #2196F3;
+    }
+    #throwerTowerBtn {
+      background-color: #ff0000;
+    }
+    #speedToggleBtn {
+      background-color: #ff9800;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <canvas id="gameCanvas" width="600" height="500"></canvas>
+    <div class="controls">
+      <button id="startWaveBtn">开始波次</button>
+      <div class="tower-buttons">
+        <button id="groundTowerBtn">地面塔 (50)</button>
+        <button id="highTowerBtn">高空塔 (75)</button>
+        <button id="throwerTowerBtn">投掷手 (75)</button>
+        <button id="throwerSkillBtn" class="tower-btn" style="display: none; background-color: #ff6600; position: absolute;">技能触发</button>
+        <!-- 新增撤退按钮 -->
+        <button id="retreatBtn" class="tower-btn" style="display: none; background-color: #ff0000; position: absolute;">撤退</button>
+        <button id="speedToggleBtn">暂停/继续</button>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+  <script src="tower.js"></script>
+  <script src="enemy.js"></script>
+  <script src="bullet.js"></script>
+  <script src="summoner.js"></script> <!-- 新增：确保 Summoner 类先加载 -->
+  <script src="thrower.js"></script> <!-- 调整顺序，在 summoner.js 之后 -->
+</body>
+</html>
